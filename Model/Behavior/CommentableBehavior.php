@@ -91,7 +91,7 @@ class CommentableBehavior extends ModelBehavior {
 				'className' => $cfg['userModelClass'],
 				'foreignKey' => 'user_id',
 				'conditions' => '',
-				'fields' => '',
+				//'fields' => '',
 				'counterCache' => true,
 				'order' => ''))), false);
 	}
@@ -282,7 +282,7 @@ class CommentableBehavior extends ModelBehavior {
 			$model->Comment->unbindModel($unbind, false);
 		}
 
-		$model->Comment->belongsTo[$model->alias]['fields'] = array('id');
+		$model->Comment->belongsTo[$model->alias]['fields'] = array($model->primaryKey);//array('id');
 		$model->Comment->belongsTo[$userModel]['fields'] = array('id', $model->Comment->{$userModel}->displayField, 'slug');
 		$conditions = array('Comment.approved' => 1);
 		if (isset($id)) {

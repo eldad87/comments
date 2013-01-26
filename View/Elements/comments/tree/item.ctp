@@ -26,7 +26,7 @@ if (!empty($allowAddByAuth)) {
 	}
 }
 
-$_userLink = $comment[$userModel]['username'];
+$_userLink = $comment[$userModel]['id'];
 ?>
 <div class="comment">
 	<div class="header">
